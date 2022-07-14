@@ -21,12 +21,19 @@ const db eps = 1e-5;
 const db pi = acos(-1);
 
 void solve(){
-  
+	int n; cin >> n;
+	vt<pii> a(n);
+	for(auto& x: a) cin >> x.se >> x.fi;
+	sort(all(a));
+	int cur = -1, ans = 0;
+	for(auto x: a) 
+		if(x.se >= cur) ++ans, cur = x.fi;
+	cout << ans << '\n';
 }
 
 int main(){
-  fastio();
-  int t = 1; cin >> t;
-  while(t--) solve();
-  return 0;
+	fastio();
+	int t = 1; //cin >> t;
+	while(t--) solve();
+	return 0;
 }

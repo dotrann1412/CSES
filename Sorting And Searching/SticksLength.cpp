@@ -20,13 +20,28 @@ const ll MOD = 1e9 + 7;
 const db eps = 1e-5;
 const db pi = acos(-1);
 
+template <class T> std::istream &operator >> (std::istream &s, std::vector<T> &a){
+	for(T &x: a) s >> x;
+	return s;
+}
+
+template <class T> std::ostream &operator << (std::ostream &s, std::vector<T> &a){
+	for(T &x: a) s << x << ' ';
+	return s;
+}
+
 void solve(){
-  
+	int n; cin >> n;
+	vt<ll> a(n); cin >> a;
+	sort(all(a));
+	ll ans = 0;
+	for(auto x: a) ans += abs(x - a[n / 2]);
+	cout << ans << '\n'; 
 }
 
 int main(){
-  fastio();
-  int t = 1; cin >> t;
-  while(t--) solve();
-  return 0;
+	fastio();
+	int t = 1; //cin >> t;
+	while(t--) solve();
+	return 0;
 }

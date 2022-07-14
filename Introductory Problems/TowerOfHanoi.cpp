@@ -20,13 +20,26 @@ const ll MOD = 1e9 + 7;
 const db eps = 1e-5;
 const db pi = acos(-1);
 
+void tower_of_hanoi(char a, char b, char c, int cnt)
+{
+	if(cnt == 1) {
+		std::cout << a << ' ' << c << '\n';
+		return;
+	}
+	tower_of_hanoi(a, c, b, cnt - 1);
+	tower_of_hanoi(a, b, c, 1);
+	tower_of_hanoi(b, a, c, cnt - 1);
+}
+
 void solve(){
-  
+	int n; cin >> n;
+	cout << ((1 << n) - 1) << '\n';
+	tower_of_hanoi('1', '2', '3', n);
 }
 
 int main(){
-  fastio();
-  int t = 1; cin >> t;
-  while(t--) solve();
-  return 0;
+	fastio();
+	int t = 1; //cin >> t;
+	while(t--) solve();
+	return 0;
 }
