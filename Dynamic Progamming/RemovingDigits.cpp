@@ -20,13 +20,24 @@ const ll MOD = 1e9 + 7;
 const db eps = 1e-5;
 const db pi = acos(-1);
 
+vector<int> digit(int a) {
+	vt<int> res;
+	while(a) res.pb(a % 10), a /= 10;
+	return res;
+}
+
 void solve(){
-  
+	int n; cin >> n;
+	vt<int> dp(n + 1, INF);
+	for(int i = n; i >= 0; --i) {
+		auto a = digit(i);
+		for(auto x: a) 
+	}
 }
 
 int main(){
-  fastio();
-  int t = 1; cin >> t;
-  while(t--) solve();
-  return 0;
+	fastio();
+	int t = 1; //cin >> t;
+	while(t--) solve();
+	return 0;
 }
